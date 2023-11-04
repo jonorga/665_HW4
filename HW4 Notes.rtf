@@ -5,4 +5,27 @@
 \margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Use that backdoor pattern for not changing a code base}
+\f0\fs24 \cf0 - Using the visitor pattern for this assignment\
+- Use the new systems interface with the old systems API\
+- From Visitor pattern example:\
+	- Car interface = old interface\
+	- CarVisitor interface = new interface\
+	- Honda class = implements old interface\
+	- Booster2x class = implements new interface\
+- My code:\
+	- CustomerData_USB interface (old)\
+		- Method, void, printCustomer, int customerId\
+		- Method, void, getCustomer_USB, int customerId\
+		- Method, void, accept, USBConnectVisitor usbConnectVisitor\
+	- CustomerData_HTTPS interface (new)\
+		- Method, void, printCustomer, int customerId\
+		- Method, void, getCustomer_HTTPS, int customerId\
+		- Method, void, visit, USBConnect usbConnect\
+	- USBConnect class implements CustomerData_USB\
+		- Method, void, printCustomer, int customerId\
+		- Method, void, getCustomer_USB, int customerId\
+		- Method, void, accept, USBConnectVisitor usbConnectVisitor\
+	- USBConnectVisitor class implements CustomerData_HTTPS\
+		- Method, void, printCustomer, int customerId\
+		- Method, void, getCustomer_HTTPS, int customerId\
+		- Method, void, visit, USBConnect usbConnect}
