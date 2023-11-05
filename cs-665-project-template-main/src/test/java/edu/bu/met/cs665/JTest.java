@@ -1,6 +1,6 @@
 package test;
 
-import email_generator.*;
+import legacy_system.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,42 +9,32 @@ import org.junit.Test;
 public class JTest {
 
 	@Test
-	public void TestBusinessCustomer() {
-		Customer testCase = new Customer();
-		testCase.SetCustomerType(new BusinessEmail());
-		assertEquals("To whom it may concern, we are reaching out regarding this business email.", 
-			testCase.GetEmail());
+	public void TestCurrentSystemBase() {
+		USBConnectVisitor usbConnectTest = new USBConnectVisitor();
+		usbConnectTest.getCustomer_HTTPS(20);
+		usbConnectTest.printCustomer(20);
+
+		assertEquals(60, usbConnectTest.returnCustomer_HTTPS(20), 0);
 	}
 
 	@Test
-	public void TestReturningCustomer() {
-		Customer testCase = new Customer();
-		testCase.SetCustomerType(new ReturningEmail());
-		assertEquals("Welcome back, we are reaching out regarding to your renewal of our services.", 
-			testCase.GetEmail());
+	public void TestOldSystemBase() {
+		USBConnect usbConnectTest = new USBConnect();
+		usbConnectTest.getCustomer_USB(20);
+		usbConnectTest.printCustomer(20);
+
+		assertEquals(40, usbConnectTest.returnCustomer_USB(20), 0);
 	}
 
 	@Test
-	public void TestFrequentCustomer() {
-		Customer testCase = new Customer();
-		testCase.SetCustomerType(new FrequentEmail());
-		assertEquals("Hello again! we are reaching out regarding our continuing business together.", 
-			testCase.GetEmail());
-	}
+	public void TestVisitingAbilities() {
+		USBConnectVisitor usbConnectVisitorTest = new USBConnectVisitor();
+		USBConnect usbConnectTest = new USBConnect();
+		usbConnectTest.getCustomer_USB(20);
+		usbConnectVisitorTest.getCustomer_HTTPS(30);
+		usbConnectVisitorTest.visit(usbConnectTest);
 
-	@Test
-	public void TestNewCustomer() {
-		Customer testCase = new Customer();
-		testCase.SetCustomerType(new NewEmail());
-		assertEquals("Welcome! we are reaching out regarding our new business partnership.", 
-			testCase.GetEmail());
-	}
 
-	@Test
-	public void TestVIPCustomer() {
-		Customer testCase = new Customer();
-		testCase.SetCustomerType(new VIPEmail());
-		assertEquals("To our most valued customer, we are reaching out to let you know we value your business.", 
-			testCase.GetEmail());
+		assertEquals(60, usbConnectTest.customer_USB, 0);
 	}
 }
