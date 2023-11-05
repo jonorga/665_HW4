@@ -16,16 +16,16 @@
 	- CustomerData_USB interface (old)\
 		- Method, void, printCustomer, int customerId\
 		- Method, void, getCustomer_USB, int customerId\
-		- Method, void, accept, USBConnectVisitor usbConnectVisitor\
+		- Method, void, accept, CustomerData_HTTPS customerData_HTTPS\
 	- CustomerData_HTTPS interface (new)\
 		- Method, void, printCustomer, int customerId\
 		- Method, void, getCustomer_HTTPS, int customerId\
-		- Method, void, visit, USBConnect usbConnect\
+		- Method, void, visit, CustomerData_USB customerData_USB\
 	- USBConnect class implements CustomerData_USB\
 		- Method, void, printCustomer, int customerId\
 		- Method, void, getCustomer_USB, int customerId\
-		- Method, void, accept, USBConnectVisitor usbConnectVisitor\
+		- Method, void, accept, CustomerData_HTTPS customerData_HTTPS\
 	- USBConnectVisitor class implements CustomerData_HTTPS\
 		- Method, void, printCustomer, int customerId\
 		- Method, void, getCustomer_HTTPS, int customerId\
-		- Method, void, visit, USBConnect usbConnect}
+		- Method, void, visit, CustomerData_USB customerData_USB}
