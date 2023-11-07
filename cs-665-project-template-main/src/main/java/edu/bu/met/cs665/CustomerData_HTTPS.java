@@ -3,8 +3,8 @@
  * Course: CS-665 Software Designs & Patterns
  * Date: 11/5/2023
  * File Name: CustomerData_HTTPS.java
- * Description: This file contains the CustomerData_HTTPS interface. It contains the methods printCustomer,
- * getCustomer_HTTPS, and visit.
+ * Description: This file contains the CustomerData_HTTPS interface. It contains the methods 
+ * printCustomer, getCustomer_HTTPS, and visit.
  */
 
 package legacy_system;
